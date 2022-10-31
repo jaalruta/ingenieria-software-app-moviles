@@ -4,8 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#1F1F1F"
     android:orientation="vertical"
-    tools:context=".MenuFragment" >
+    tools:context=".MenuFragment">
 
     <ImageView
         android:id="@+id/albumMenu"
@@ -13,10 +14,10 @@
         android:layout_height="201dp"
         android:clickable="true"
         android:contentDescription="@string/title_albums"
+        android:focusable="true"
         android:padding="5dp"
         app:srcCompat="@drawable/albumes"
         tools:src="@drawable/albumes"
-        tools:srcCompat="@drawable/albumes"
-        android:focusable="true" />
+        tools:srcCompat="@drawable/albumes" />
 
 </LinearLayout>
