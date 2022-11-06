@@ -104,11 +104,12 @@ Para ejecutar la app
 
 
 ### Ejecutar Proyecto en dispositivo fisico
-
 primero debemos activar la depuración USB , para esto se explicara la manera mas usual (puede variar en algunos dispositivos)
 
  - Debemos ir a Ajustes -> Informacion del telefono
+ 
  ![imagen](https://user-images.githubusercontent.com/98671337/200172923-a907c89b-675e-4937-aa14-421165f0077f.png)
+ 
  - Luego daremos click varias vecen en "Número de compilación"
  
  ![imagen](https://user-images.githubusercontent.com/98671337/200172994-7f609ab3-a091-477f-b071-97351c04677b.png)
