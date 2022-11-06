@@ -168,6 +168,6 @@ haciendo click en "Locate" podremos ir al directorio donde genero el APK
 
 # Apk de app Vinilos
 
-El APK construido se podra encontrar en el siguiente link
+El ultimo APK construido por nuestro grupo se podra encontrar en el siguiente link
 
 [apk](https://drive.google.com/file/d/1Vgk9-_G83B-umnEvwqIb2AGddF6LHxnq/view?usp=share_link)
