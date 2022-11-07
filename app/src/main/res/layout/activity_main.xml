@@ -5,7 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#1F1F1F"
+<<<<<<< HEAD
     tools:context=".ui.MainActivity">
+=======
+    tools:context=".viewmodels.ui.MainActivity">
+>>>>>>> main
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/NavHostFragment"
@@ -13,5 +17,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
+<<<<<<< HEAD
         app:navGraph="@navigation/nav_graph" />
+=======
+        app:navGraph="@navigation/nav_graph"
+        tools:layout_editor_absoluteX="166dp"
+        tools:layout_editor_absoluteY="16dp" />
+>>>>>>> main
 </androidx.constraintlayout.widget.ConstraintLayout>

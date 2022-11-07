@@ -10,13 +10,23 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#1F1F1F"
+<<<<<<< HEAD
         tools:context=".ui.AlbumFragment">
+=======
+        tools:context=".viewmodels.ui.AlbumFragment">
+>>>>>>> main
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/albumsRv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+<<<<<<< HEAD
             android:background="#1C1B1F"
+=======
+            android:layout_margin="5dp"
+            android:background="#1C1B1F"
+            android:padding="20dp"
+>>>>>>> main
             tools:listitem="@layout/album_item" />
     </FrameLayout>
 </layout>
