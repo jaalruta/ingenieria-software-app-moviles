@@ -16,7 +16,9 @@
             android:id="@+id/albumsRv"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_margin="5dp"
             android:background="#1C1B1F"
+            android:padding="20dp"
             tools:listitem="@layout/album_item" />
     </FrameLayout>
 </layout>
