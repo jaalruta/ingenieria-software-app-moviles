@@ -1,4 +1,4 @@
-package com.miso.vinilos.ui.adapters
+package com.miso.vinilos.viewmodels.ui.adapters
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup

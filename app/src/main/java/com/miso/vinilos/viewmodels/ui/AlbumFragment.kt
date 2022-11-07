@@ -1,4 +1,4 @@
-package com.miso.vinilos.ui
+package com.miso.vinilos.viewmodels.ui
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.R
 import com.miso.vinilos.databinding.AlbumFragmentBinding
 import com.miso.vinilos.models.Album
-import com.miso.vinilos.ui.adapters.AlbumsAdapter
+import com.miso.vinilos.viewmodels.ui.adapters.AlbumsAdapter
 import com.miso.vinilos.viewmodels.AlbumViewModel
 
 class AlbumFragment : Fragment() {

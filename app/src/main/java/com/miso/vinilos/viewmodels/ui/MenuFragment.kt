@@ -1,4 +1,4 @@
-package com.miso.vinilos.ui
+package com.miso.vinilos.viewmodels.ui
 
 import com.miso.vinilos.R
 import android.os.Bundle

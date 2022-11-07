@@ -1,4 +1,4 @@
-package com.miso.vinilos.ui
+package com.miso.vinilos.viewmodels.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle

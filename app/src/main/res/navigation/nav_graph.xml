@@ -6,7 +6,7 @@
     app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/albumFragment"
-        android:name="com.miso.vinilos.ui.AlbumFragment"
+        android:name="com.miso.vinilos.viewmodels.ui.AlbumFragment"
         android:label="AlbumFragment"
         tools:layout="@layout/album_fragment" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/albumDetailFragment"
-        android:name="com.miso.vinilos.ui.AlbumDetailFragment"
+        android:name="com.miso.vinilos.viewmodels.ui.AlbumDetailFragment"
         android:label="AlbumDetailFragment"
         tools:layout="@layout/album_detail_fragment">
         <argument
@@ -26,7 +26,7 @@
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.miso.vinilos.ui.MenuFragment"
+        android:name="com.miso.vinilos.viewmodels.ui.MenuFragment"
         android:label="fragment_menu2"
         tools:layout="@layout/fragment_menu2" >
         <action

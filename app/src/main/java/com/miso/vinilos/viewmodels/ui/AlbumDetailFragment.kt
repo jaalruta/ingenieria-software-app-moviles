@@ -1,4 +1,4 @@
-package com.miso.vinilos.ui
+package com.miso.vinilos.viewmodels.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
