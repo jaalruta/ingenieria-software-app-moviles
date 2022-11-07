@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -8,16 +9,25 @@
     android:orientation="vertical"
     tools:context=".MenuFragment">
 
-    <ImageView
-        android:id="@+id/albumMenu"
-        android:layout_width="match_parent"
-        android:layout_height="201dp"
-        android:clickable="true"
-        android:contentDescription="@string/title_albums"
-        android:focusable="true"
-        android:padding="5dp"
-        app:srcCompat="@drawable/albumes"
-        tools:src="@drawable/albumes"
-        tools:srcCompat="@drawable/albumes" />
+    <androidx.cardview.widget.CardView
+        android:layout_width="360dp"
+        android:layout_height="160dp"
+        android:layout_margin="30dp"
+        android:padding="15dp"
+        android:fontFamily="@font/gothic"
+        app:cardCornerRadius="40dp"
+        app:cardElevation="2dp">
+        <ImageView
+            android:id="@+id/albumMenu"
+            android:layout_width="match_parent"
+            android:layout_height="180dp"
+            android:clickable="true"
+            android:contentDescription="@string/title_albums"
+            android:focusable="true"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/albumes"
+            tools:src="@drawable/albumes"
+            tools:srcCompat="@drawable/albumes" />
 
+    </androidx.cardview.widget.CardView>
 </LinearLayout>
