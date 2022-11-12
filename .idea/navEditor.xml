@@ -41,6 +41,51 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="artistaDetailFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="575" />
+                            <option name="y" value="416" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="artistaFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="273" />
+                            <option name="y" value="417" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_artistaFragment_to_artistaDetailFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="coleccionistaFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="25" />
+                            <option name="y" value="812" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="menuFragment">
                     <value>
                       <LayoutPositions>
@@ -53,6 +98,16 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_menuFragment_to_albumFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_menuFragment_to_artistaFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_menuFragment_to_coleccionistaFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

@@ -1,4 +1,4 @@
-package com.miso.vinilos.viewmodels.ui
+package com.miso.vinilos.ui
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,30 +10,31 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.R
-import com.miso.vinilos.databinding.AlbumFragmentBinding
+import com.miso.vinilos.databinding.ArtistaFragmentBinding
 import com.miso.vinilos.models.Album
-import com.miso.vinilos.viewmodels.ui.adapters.AlbumsAdapter
-import com.miso.vinilos.viewmodels.AlbumViewModel
+import com.miso.vinilos.models.Artista
+import com.miso.vinilos.ui.adapters.ArtistaAdapter
+import com.miso.vinilos.viewmodels.ArtistaViewModel
 
-class AlbumFragment : Fragment() {
-    private var _binding: AlbumFragmentBinding? = null
+class ArtistaFragment : Fragment() {
+    private var _binding: ArtistaFragmentBinding? = null
     private val binding get() = _binding!!
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewModel: AlbumViewModel
-    private var viewModelAdapter: AlbumsAdapter? = null
+    private lateinit var viewModel: ArtistaViewModel
+    private var viewModelAdapter: ArtistaAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = AlbumFragmentBinding.inflate(inflater, container, false)
+        _binding = ArtistaFragmentBinding.inflate(inflater, container, false)
         val view = binding.root
-        viewModelAdapter = AlbumsAdapter()
+        viewModelAdapter = ArtistaAdapter()
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        recyclerView = binding.albumsRv
+        recyclerView = binding.artistaRv
         recyclerView.layoutManager = LinearLayoutManager(context)
         recyclerView.adapter = viewModelAdapter
     }
@@ -44,10 +45,10 @@ class AlbumFragment : Fragment() {
             "You can only access the viewModel after onActivityCreated()"
         }
         activity.actionBar?.title = getString(R.string.title_albums)
-        viewModel = ViewModelProvider(this, AlbumViewModel.Factory(activity.application)).get(AlbumViewModel::class.java)
-        viewModel.albums.observe(viewLifecycleOwner, Observer<List<Album>> {
+        viewModel = ViewModelProvider(this, ArtistaViewModel.Factory(activity.application)).get(ArtistaViewModel::class.java)
+        viewModel.artista.observe(viewLifecycleOwner, Observer<List<Artista>> {
             it.apply {
-                viewModelAdapter!!.albums = this
+                viewModelAdapter!!.artista = this
             }
         })
         viewModel.eventNetworkError.observe(viewLifecycleOwner, Observer<Boolean> { isNetworkError ->

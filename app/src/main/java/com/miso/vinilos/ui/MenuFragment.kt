@@ -42,6 +42,17 @@ class MenuFragment : Fragment() {
         menuAlbum.setOnClickListener{
             it.findNavController().navigate(R.id.albumFragment)
         }
+
+
+        val menuArtista : ImageView = view.findViewById(R.id.artistaMenu)
+        menuArtista.setOnClickListener{
+            it.findNavController().navigate(R.id.artistaFragment)
+        }
+
+        val menuColeccionista : ImageView = view.findViewById(R.id.coleccionistaMenu)
+        menuColeccionista.setOnClickListener{
+            it.findNavController().navigate(R.id.coleccionistaFragment)
+        }
         return view
     }
 
