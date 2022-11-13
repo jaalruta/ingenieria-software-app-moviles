@@ -170,4 +170,4 @@ haciendo click en "Locate" podremos ir al directorio donde genero el APK
 
 El ultimo APK construido por nuestro grupo se podra encontrar en el siguiente link
 
-[apk](https://drive.google.com/file/d/1MJcLVXyvSUgSyXgFDT-fa-q7VhzBTpod/view?usp=share_link)
+[apk](https://drive.google.com/file/d/1gWsh71NCoMWBONG3Nb5uyNh0q5uElGiF/view?usp=share_link)
