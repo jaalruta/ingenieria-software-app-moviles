@@ -11,7 +11,8 @@ import com.miso.vinilos.databinding.ArtistaItemBinding
 import com.miso.vinilos.R
 import com.miso.vinilos.models.Artista
 import com.bumptech.glide.Glide
-
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 
 
 class ArtistaAdapter:RecyclerView.Adapter<ArtistaAdapter.ArtistaViewHolder>() {
@@ -34,7 +35,15 @@ class ArtistaAdapter:RecyclerView.Adapter<ArtistaAdapter.ArtistaViewHolder>() {
         holder.viewDataBinding.also {
             it.artista = artista[position]
         }
-        Glide.with(holder.itemView).load(artista[position].image).into(holder.viewDataBinding.artistaImagen)
+        Glide.with(holder.itemView).
+            load(artista[position].image)
+            .apply(
+                RequestOptions()
+                .placeholder(R.drawable.artistas)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.drawable.ic_launcher_background)
+            ).
+            into(holder.viewDataBinding.artistaImagen)
         //Glide.with(context)
 
         holder.viewDataBinding.root.setOnClickListener {

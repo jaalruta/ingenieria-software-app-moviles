@@ -5,6 +5,9 @@ import androidx.lifecycle.*
 import com.miso.vinilos.models.Artista
 import com.miso.vinilos.network.NetworkServiceAdapter
 import com.miso.vinilos.repositories.ArtistaDetailRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class ArtistaDetailViewModel (application: Application, id:String?) :  AndroidViewModel(application) {
@@ -31,15 +34,19 @@ class ArtistaDetailViewModel (application: Application, id:String?) :  AndroidVi
     }
 
     private fun refreshDataFromNetwork(id:String?) {
-
-        artistaDetailRepository.refreshData({
-            _artista.postValue(it)
-            _eventNetworkError.value = false
-            _isNetworkErrorShown.value = false
-        },{
+        try {
+            viewModelScope.launch (Dispatchers.Default){
+                withContext(Dispatchers.IO){
+                    var data = artistaDetailRepository.refreshData(id)
+                    _artista.postValue(data)
+                }
+                _eventNetworkError.postValue(false)
+                _isNetworkErrorShown.postValue(false)
+            }
+        }
+        catch (e:Exception){
             _eventNetworkError.value = true
-        },id)
-
+        }
     }
 
     fun onNetworkErrorShown() {

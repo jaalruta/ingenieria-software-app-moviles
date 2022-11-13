@@ -8,6 +8,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.miso.vinilos.R
 import com.miso.vinilos.databinding.ArtistaDetailItemBinding
 import com.miso.vinilos.models.Album
@@ -33,7 +35,15 @@ class ArtistaDetailAdapter: RecyclerView.Adapter<ArtistaDetailAdapter.ArtistaDet
         holder.viewDataBinding.also {
             it.album = album[position]
         }
-        Glide.with(holder.itemView).load(album[position].cover).into(holder.viewDataBinding.coverDetailArtist)
+        Glide.with(holder.itemView).
+        load(album[position].cover).
+            apply(
+                RequestOptions()
+                .placeholder(R.drawable.artistas)
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+                .error(R.drawable.ic_launcher_background)
+            ).
+        into(holder.viewDataBinding.coverDetailArtist)
         //Glide.with(context)
 
         holder.viewDataBinding.root.setOnClickListener {

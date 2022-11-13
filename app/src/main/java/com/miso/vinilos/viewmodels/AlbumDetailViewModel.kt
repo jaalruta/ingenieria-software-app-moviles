@@ -5,6 +5,9 @@ import androidx.lifecycle.*
 import com.miso.vinilos.models.Album
 import com.miso.vinilos.network.NetworkServiceAdapter
 import com.miso.vinilos.repositories.AlbumDetailRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 
 class AlbumDetailViewModel (application: Application, id:String?) :  AndroidViewModel(application) {
@@ -31,14 +34,19 @@ class AlbumDetailViewModel (application: Application, id:String?) :  AndroidView
     }
 
     private fun refreshDataFromNetwork(id:String?) {
-
-        albumsDetailRepository.refreshData({
-            _albums.postValue(it)
-            _eventNetworkError.value = false
-            _isNetworkErrorShown.value = false
-        },{
+        try {
+            viewModelScope.launch (Dispatchers.Default){
+                withContext(Dispatchers.IO){
+                    var data = albumsDetailRepository.refreshData(id)
+                    _albums.postValue(data)
+                }
+                _eventNetworkError.postValue(false)
+                _isNetworkErrorShown.postValue(false)
+            }
+        }
+        catch (e:Exception){
             _eventNetworkError.value = true
-        },id)
+        }
 
     }
 
