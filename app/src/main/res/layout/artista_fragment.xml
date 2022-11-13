@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data
+        android:id="@+id/dataAT"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#1F1F1F"
+        tools:context=".ui.ArtistaFragment">
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/artistaRv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="5dp"
+            android:background="#1C1B1F"
+            android:padding="20dp"
+            tools:listitem="@layout/artista_item" />
+    </FrameLayout>
+</layout>
