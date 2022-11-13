@@ -6,7 +6,7 @@
     app:startDestination="@id/menuFragment">
     <fragment
         android:id="@+id/albumFragment"
-        android:name="com.miso.vinilos.viewmodels.ui.AlbumFragment"
+        android:name="com.miso.vinilos.ui.AlbumFragment"
         android:label="AlbumFragment"
         tools:layout="@layout/album_fragment" >
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/albumDetailFragment"
-        android:name="com.miso.vinilos.viewmodels.ui.AlbumDetailFragment"
+        android:name="com.miso.vinilos.ui.AlbumDetailFragment"
         android:label="AlbumDetailFragment"
         tools:layout="@layout/album_detail_fragment">
         <argument
@@ -26,11 +26,33 @@
     </fragment>
     <fragment
         android:id="@+id/menuFragment"
-        android:name="com.miso.vinilos.viewmodels.ui.MenuFragment"
+        android:name="com.miso.vinilos.ui.MenuFragment"
         android:label="fragment_menu2"
         tools:layout="@layout/fragment_menu2" >
         <action
             android:id="@+id/action_menuFragment_to_albumFragment"
             app:destination="@id/albumFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_artistaFragment"
+            app:destination="@id/artistaFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_coleccionistaFragment"
+            app:destination="@id/coleccionistaFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/artistaFragment"
+        android:name="com.miso.vinilos.ui.ArtistaFragment"
+        android:label="ArtistaFragment" >
+        <action
+            android:id="@+id/action_artistaFragment_to_artistaDetailFragment"
+            app:destination="@id/artistaDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/coleccionistaFragment"
+        android:name="com.miso.vinilos.ui.ColeccionistaFragment"
+        android:label="ColeccionistaFragment" />
+    <fragment
+        android:id="@+id/artistaDetailFragment"
+        android:name="com.miso.vinilos.ui.ArtistaDetailFragment"
+        android:label="ArtistaDetailFragment" />
 </navigation>

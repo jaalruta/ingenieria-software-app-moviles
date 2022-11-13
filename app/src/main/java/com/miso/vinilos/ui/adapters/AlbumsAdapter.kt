@@ -1,5 +1,4 @@
 package com.miso.vinilos.ui.adapters
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -11,7 +10,8 @@ import com.miso.vinilos.databinding.AlbumItemBinding
 import com.miso.vinilos.R
 import com.miso.vinilos.models.Album
 import com.bumptech.glide.Glide
-
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 
 
 class AlbumsAdapter:RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
@@ -34,8 +34,12 @@ class AlbumsAdapter:RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
         holder.viewDataBinding.also {
             it.album = albums[position]
         }
-        Glide.with(holder.itemView).load(albums[position].cover).into(holder.viewDataBinding.imageView)
-        //Glide.with(context)
+        Glide.with(holder.itemView)
+            .load(albums[position].cover)
+            .apply(RequestOptions()
+                .diskCacheStrategy(DiskCacheStrategy.ALL)
+             )
+            .into(holder.viewDataBinding.imageView)
 
         holder.viewDataBinding.root.setOnClickListener {
             val bundle = bundleOf("idAlbum" to albums[position].id.toString())
