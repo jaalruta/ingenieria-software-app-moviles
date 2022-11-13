@@ -11,7 +11,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.R
 import com.miso.vinilos.databinding.ArtistaFragmentBinding
-import com.miso.vinilos.models.Album
 import com.miso.vinilos.models.Artista
 import com.miso.vinilos.ui.adapters.ArtistaAdapter
 import com.miso.vinilos.viewmodels.ArtistaViewModel

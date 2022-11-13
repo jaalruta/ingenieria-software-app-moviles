@@ -1,16 +1,12 @@
 package com.miso.vinilos.ui.adapters
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
-import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.databinding.ColeccionistaItemBinding
 import com.miso.vinilos.R
 import com.miso.vinilos.models.Coleccionista
-import com.bumptech.glide.Glide
 
 
 

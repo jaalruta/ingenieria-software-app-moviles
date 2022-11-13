@@ -16,7 +16,6 @@ import com.bumptech.glide.Glide
 import com.miso.vinilos.R
 import com.miso.vinilos.databinding.ArtistaDetailFragmentBinding
 import com.miso.vinilos.models.Artista
-import com.miso.vinilos.ui.adapters.AlbumsAdapter
 import com.miso.vinilos.ui.adapters.ArtistaDetailAdapter
 import com.miso.vinilos.viewmodels.ArtistaDetailViewModel
 

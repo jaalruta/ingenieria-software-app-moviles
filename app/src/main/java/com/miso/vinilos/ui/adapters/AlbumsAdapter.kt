@@ -1,5 +1,4 @@
 package com.miso.vinilos.ui.adapters
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -38,9 +37,7 @@ class AlbumsAdapter:RecyclerView.Adapter<AlbumsAdapter.AlbumViewHolder>() {
         Glide.with(holder.itemView)
             .load(albums[position].cover)
             .apply(RequestOptions()
-                .placeholder(R.drawable.albumes)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .error(R.drawable.ic_launcher_background)
              )
             .into(holder.viewDataBinding.imageView)
 

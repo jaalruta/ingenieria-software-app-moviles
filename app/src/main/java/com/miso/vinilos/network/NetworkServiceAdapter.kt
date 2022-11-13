@@ -3,7 +3,6 @@ import android.content.Context
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
-import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -13,7 +12,6 @@ import com.miso.vinilos.models.Coleccionista
 import org.json.JSONArray
 import org.json.JSONObject
 import java.text.SimpleDateFormat
-import java.util.stream.Collector
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.coroutines.suspendCoroutine
@@ -39,8 +37,9 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Album>()
-                for (i in 0 until resp.length()) {
-                    val item = resp.getJSONObject(i)
+                var item:JSONObject? = null
+                    for (i in 0 until resp.length()) {
+                    item = resp.getJSONObject(i)
                     val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
                     val formatter = SimpleDateFormat("yyyy")
                     val fecha = formatter.format(parser.parse(item.getString("releaseDate")))
@@ -77,12 +76,14 @@ class NetworkServiceAdapter constructor(context: Context) {
                 val resp = JSONArray(response)
                 val list = mutableListOf<Artista>()
                 var albumList = mutableListOf<Album>();
+                var item:JSONObject? = null
+                var datosAlbum:JSONArray? = null
                 for (i in 0 until resp.length()) {
-                    val item = resp.getJSONObject(i)
+                    item = resp.getJSONObject(i)
                     val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
                     val formatter = SimpleDateFormat("yyyy")
                     val fecha = formatter.format(parser.parse(item.getString("birthDate")))
-                    val datosAlbum = item.getJSONArray("albums")
+                    datosAlbum = item.getJSONArray("albums")
                     for(x in 0 until datosAlbum.length())
                     {
                         var album = Album(
@@ -162,12 +163,9 @@ class NetworkServiceAdapter constructor(context: Context) {
             Response.Listener<String> { response ->
                 val resp = JSONArray(response)
                 val list = mutableListOf<Coleccionista>()
+                var item:JSONObject? = null
                 for (i in 0 until resp.length()) {
-                    val item = resp.getJSONObject(i)
-                    val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
-                    val formatter = SimpleDateFormat("yyyy")
-
-
+                    item = resp.getJSONObject(i)
                     list.add(i, Coleccionista(id = item.getInt("id"),name = item.getString("name"), telephone = item.getString("telephone"), email = item.getString("email")))
                 }
                 cont.resume(list)

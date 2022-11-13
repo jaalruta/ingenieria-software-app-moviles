@@ -3,7 +3,6 @@ package com.miso.vinilos.viewmodels
 import android.app.Application
 import androidx.lifecycle.*
 import com.miso.vinilos.models.Artista
-import com.miso.vinilos.network.NetworkServiceAdapter
 import com.miso.vinilos.repositories.ArtistaDetailRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

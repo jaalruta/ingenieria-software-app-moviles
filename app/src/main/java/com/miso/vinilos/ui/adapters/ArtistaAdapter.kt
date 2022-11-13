@@ -1,5 +1,4 @@
 package com.miso.vinilos.ui.adapters
-import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
@@ -39,9 +38,7 @@ class ArtistaAdapter:RecyclerView.Adapter<ArtistaAdapter.ArtistaViewHolder>() {
             load(artista[position].image)
             .apply(
                 RequestOptions()
-                .placeholder(R.drawable.artistas)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .error(R.drawable.ic_launcher_background)
             ).
             into(holder.viewDataBinding.artistaImagen)
         //Glide.with(context)

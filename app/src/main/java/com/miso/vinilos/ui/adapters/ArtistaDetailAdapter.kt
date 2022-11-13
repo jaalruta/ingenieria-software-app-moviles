@@ -13,7 +13,6 @@ import com.bumptech.glide.request.RequestOptions
 import com.miso.vinilos.R
 import com.miso.vinilos.databinding.ArtistaDetailItemBinding
 import com.miso.vinilos.models.Album
-import com.miso.vinilos.models.Artista
 
 class ArtistaDetailAdapter: RecyclerView.Adapter<ArtistaDetailAdapter.ArtistaDetailViewHolder>() {
     var album :List<Album> = emptyList()
@@ -39,9 +38,7 @@ class ArtistaDetailAdapter: RecyclerView.Adapter<ArtistaDetailAdapter.ArtistaDet
         load(album[position].cover).
             apply(
                 RequestOptions()
-                .placeholder(R.drawable.artistas)
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .error(R.drawable.ic_launcher_background)
             ).
         into(holder.viewDataBinding.coverDetailArtist)
         //Glide.with(context)
