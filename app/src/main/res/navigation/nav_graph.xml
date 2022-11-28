@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_albumFragment_to_albumDetailFragment"
             app:destination="@id/albumDetailFragment" />
+        <action
+            android:id="@+id/action_albumFragment_to_albumCreateFragment"
+            app:destination="@id/albumCreateFragment" />
     </fragment>
     <fragment
         android:id="@+id/albumDetailFragment"
@@ -50,9 +53,21 @@
     <fragment
         android:id="@+id/coleccionistaFragment"
         android:name="com.miso.vinilos.ui.ColeccionistaFragment"
-        android:label="ColeccionistaFragment" />
+        android:label="ColeccionistaFragment" >
+        <action
+            android:id="@+id/action_coleccionistaFragment_to_coleccionistaDetailFragment"
+            app:destination="@id/coleccionistaDetailFragment" />
+    </fragment>
     <fragment
         android:id="@+id/artistaDetailFragment"
         android:name="com.miso.vinilos.ui.ArtistaDetailFragment"
         android:label="ArtistaDetailFragment" />
+    <fragment
+        android:id="@+id/coleccionistaDetailFragment"
+        android:name="com.miso.vinilos.ui.ColeccionistaDetailFragment"
+        android:label="ColeccionistaDetailFragment" />
+    <fragment
+        android:id="@+id/albumCreateFragment"
+        android:name="com.miso.vinilos.ui.AlbumCreateFragment"
+        android:label="AlbumCreateFragment" />
 </navigation>

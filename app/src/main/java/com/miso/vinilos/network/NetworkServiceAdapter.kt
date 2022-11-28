@@ -175,6 +175,44 @@ class NetworkServiceAdapter constructor(context: Context) {
             }))
     }
 
+    suspend fun getColeccionistaDetail(id:String?)= suspendCoroutine<Coleccionista>{ cont ->
+        requestQueue.add(getRequest("collectors/"+id+"/albums",
+            Response.Listener<String> { response ->
+                val resp = JSONArray(response)
+                var item:JSONObject? = null
+                var coleccionista = Coleccionista();
+                val list = mutableListOf<Album>()
+                lateinit var album : JSONObject
+                lateinit var collector : JSONObject
+                val parser = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss")
+                val formatter = SimpleDateFormat("yyyy")
+                for (i in 0 until resp.length()) {
+                    item = resp.getJSONObject(i)
+                    if(i == 0)
+                    {
+                        collector = item.getJSONObject("collector")
+                        coleccionista.id = collector.getInt("id");
+                        coleccionista.name = collector.getString("name");
+                        coleccionista.email = collector.getString("email");
+                        coleccionista.telephone = collector.getString("telephone");
+                    }
+                    album = item.getJSONObject("album")
+                    if (album.length()>0)
+                    {
+                        val fecha = formatter.format(parser.parse(album.getString("releaseDate")))
+                        list.add(i,Album(id = album.getInt("id"),name = album.getString("name"), cover = album.getString("cover"), recordLabel = album.getString("recordLabel"), releaseDate = fecha, genre = album.getString("genre"), description = album.getString("description")))
+                    }
+                                 }
+                coleccionista.albums = list;
+
+                cont.resume(coleccionista)
+            },
+            Response.ErrorListener {
+                cont.resumeWithException(it)
+            }))
+    }
+
+
 
     private fun getRequest(path:String, responseListener: Response.Listener<String>, errorListener: Response.ErrorListener): StringRequest {
         return StringRequest(Request.Method.GET, BASE_URL+path, responseListener,errorListener)

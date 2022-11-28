@@ -1,8 +1,9 @@
 package com.miso.vinilos.models
-
+import com.miso.vinilos.models.Album
 data class Coleccionista (
-    val id:Int = -1,
-    val name:String = "",
-    val telephone:String = "",
-    val email:String = ""
+    var id:Int = -1,
+    var name:String = "",
+    var telephone:String = "",
+    var email:String = "",
+    var albums: List<Album> = emptyList()
 )

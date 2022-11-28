@@ -3,4 +3,26 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_albums">Albumes</string>
+    <string name="title_crear_albums">Crear Album</string>
+    <string name="hint_nombre">Ingrese el nombre del album</string>
+    <string name="titulo_nombre">Nombre del album</string>
+    <string name="hint_url">Ingrese la URL</string>
+    <string name="titulo_url">Url Imagen Album</string>
+    <string name="hint_fecha">Ingrese la Fecha de lanzamiento</string>
+    <string name="titulo_fecha">Fecha De Lanzamiento</string>
+
+    <string name="titulo_genero">Genero Musical</string>
+
+    <string name="hint_discografica">Empresa Discografica</string>
+
+    <string name="hint_descripcion">Ingrese la descripcion</string>
+    <string name="titulo_descripcion">Descripcion</string>
+
+    <string name="titulo_discografica">Ingrese Empresa Discografica</string>
+    <string-array name="Genero" >
+        <item>Salsa</item>
+        <item>Rock</item>
+    </string-array>
+
+
 </resources>

@@ -6,19 +6,26 @@
 
     </data>
 
-    <FrameLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#1F1F1F"
-        tools:context=".viewmodels.ui.AlbumFragment">
+        android:background="#1C1B1F"
+        android:orientation="vertical">
+
+        <Button
+            android:id="@+id/botonCrearAlbum"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:text="Crear Album" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/albumsRv"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="738dp"
             android:layout_margin="5dp"
             android:background="#1C1B1F"
             android:padding="20dp"
             tools:listitem="@layout/album_item" />
-    </FrameLayout>
+    </LinearLayout>
 </layout>

@@ -2,11 +2,14 @@ package com.miso.vinilos.ui.adapters
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
+import androidx.core.os.bundleOf
 import androidx.databinding.DataBindingUtil
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.miso.vinilos.databinding.ColeccionistaItemBinding
 import com.miso.vinilos.R
 import com.miso.vinilos.models.Coleccionista
+import com.miso.vinilos.ui.ColeccionistaDetailFragment
 
 
 
@@ -34,9 +37,9 @@ class ColeccionistaAdapter:RecyclerView.Adapter<ColeccionistaAdapter.ArtistaView
         //Glide.with(context)
 
         holder.viewDataBinding.root.setOnClickListener {
-            //val bundle = bundleOf("idAlbum" to artista[position].id.toString())
+            val bundle = bundleOf("idColeccionista" to coleccionista[position].id.toString())
 
-            //holder.viewDataBinding.root.findNavController().navigate(R.id.albumDetailFragment,bundle)
+            holder.viewDataBinding.root.findNavController().navigate(R.id.coleccionistaDetailFragment,bundle)
         }
     }
 

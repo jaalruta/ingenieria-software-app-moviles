@@ -24,6 +24,9 @@ class CacheManager(context: Context) {
     private var coleccionistas: HashMap<Int, List<Coleccionista>> = hashMapOf()
     private var coleccionista: HashMap<Int, Coleccionista> = hashMapOf()
 
+
+    private var coleccionistaDetail: HashMap<Int, Coleccionista> = hashMapOf()
+
     fun addAlbums(albumId: Int, data: List<Album>){
         if (!albums.containsKey(albumId)){
             albums[albumId] = data
@@ -86,6 +89,19 @@ class CacheManager(context: Context) {
             coleccionista[coleccionistaId]!!
         else
             Coleccionista()
+    }
+
+    fun getColeccionistaDetail(coleccionistaId: Int) : Coleccionista {
+        return if (coleccionistaDetail.containsKey(coleccionistaId))
+            coleccionistaDetail[coleccionistaId]!!
+        else
+            Coleccionista()
+    }
+
+    fun addColeccionistaDetail(coleccionistaId: Int, data: Coleccionista){
+        if (!coleccionistaDetail.containsKey(coleccionistaId)){
+            coleccionistaDetail[coleccionistaId] = data
+        }
     }
 
 }
