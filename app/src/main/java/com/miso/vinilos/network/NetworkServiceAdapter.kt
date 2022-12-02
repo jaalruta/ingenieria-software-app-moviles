@@ -3,6 +3,7 @@ import android.content.Context
 import com.android.volley.Request
 import com.android.volley.RequestQueue
 import com.android.volley.Response
+import com.android.volley.VolleyError
 import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
@@ -18,7 +19,7 @@ import kotlin.coroutines.suspendCoroutine
 
 class NetworkServiceAdapter constructor(context: Context) {
     companion object{
-        const val BASE_URL= "https://vinilos-grupo16.herokuapp.com/"
+        const val BASE_URL= "https://vinilos-369918.uc.r.appspot.com/"
         var instance: NetworkServiceAdapter? = null
         fun getInstance(context: Context) =
             instance ?: synchronized(this) {
@@ -209,6 +210,29 @@ class NetworkServiceAdapter constructor(context: Context) {
             },
             Response.ErrorListener {
                 cont.resumeWithException(it)
+            }))
+    }
+
+
+    fun postAlbum(body: JSONObject,  onComplete:(resp:JSONObject)->Unit , onError: (error: VolleyError)->Unit){
+        requestQueue.add(postRequest("albums",
+            body,
+            Response.Listener<JSONObject> { response ->
+                onComplete(response)
+            },
+            Response.ErrorListener {
+                onError(it)
+            }))
+    }
+
+    fun postComentario(idAlbum:String?,body: JSONObject,  onComplete:(resp:JSONObject)->Unit , onError: (error: VolleyError)->Unit){
+        requestQueue.add(postRequest("albums/"+idAlbum+"/comments",
+            body,
+            Response.Listener<JSONObject> { response ->
+                onComplete(response)
+            },
+            Response.ErrorListener {
+                onError(it)
             }))
     }
 

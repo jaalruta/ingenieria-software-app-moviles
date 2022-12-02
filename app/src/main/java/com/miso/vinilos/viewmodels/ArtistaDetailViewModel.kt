@@ -2,11 +2,13 @@ package com.miso.vinilos.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.android.volley.VolleyError
 import com.miso.vinilos.models.Artista
 import com.miso.vinilos.repositories.ArtistaDetailRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
 
 
 class ArtistaDetailViewModel (application: Application, id:String?) :  AndroidViewModel(application) {

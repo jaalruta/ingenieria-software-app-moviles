@@ -2,11 +2,14 @@ package com.miso.vinilos.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.android.volley.VolleyError
 import com.miso.vinilos.models.Album
 import com.miso.vinilos.repositories.AlbumRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
+import  com.google.gson.Gson
 
 class AlbumCreateViewModel(application: Application) :  AndroidViewModel(application) {
 
@@ -49,6 +52,28 @@ class AlbumCreateViewModel(application: Application) :  AndroidViewModel(applica
 
     fun onNetworkErrorShown() {
         _isNetworkErrorShown.value = true
+    }
+
+    fun crearAlbum(nombreAlbum:String,urlAlbum:String,fechaAlbum:String,generoAlbum:String,empresaAlbum:String,descripcionAlbum:String,callback: (JSONObject)->Unit, onError: (VolleyError)->Unit): String {
+
+        var respuesta = "";
+        var album = Album(
+            name = nombreAlbum,
+            cover = urlAlbum,
+            releaseDate = fechaAlbum,
+            description = descripcionAlbum,
+            genre = generoAlbum,
+            recordLabel = empresaAlbum
+        );
+        var gson = Gson()
+        var jsonString = gson.toJson(album)
+
+
+        var dataAlbum = JSONObject(jsonString);
+        dataAlbum.remove("id")
+         albumsRepository.createAlbum(dataAlbum,callback,onError)
+
+        return respuesta;
     }
 
 

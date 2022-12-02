@@ -32,6 +32,10 @@ class CacheManager(context: Context) {
             albums[albumId] = data
         }
     }
+    fun deleteAlbums(albumId: Int)
+    {
+        albums.clear()
+    }
     fun getAlbums(albumId: Int) : List<Album>{
         return if (albums.containsKey(albumId)) albums[albumId]!! else listOf<Album>()
     }

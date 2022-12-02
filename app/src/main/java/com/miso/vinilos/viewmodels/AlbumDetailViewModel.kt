@@ -2,11 +2,16 @@ package com.miso.vinilos.viewmodels
 
 import android.app.Application
 import androidx.lifecycle.*
+import com.android.volley.VolleyError
+import com.google.gson.Gson
 import com.miso.vinilos.models.Album
 import com.miso.vinilos.repositories.AlbumDetailRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import org.json.JSONObject
+import com.miso.vinilos.models.Comentario
+import com.miso.vinilos.models.CollectorComentario
 
 
 class AlbumDetailViewModel (application: Application, id:String?) :  AndroidViewModel(application) {
@@ -51,6 +56,21 @@ class AlbumDetailViewModel (application: Application, id:String?) :  AndroidView
 
     fun onNetworkErrorShown() {
         _isNetworkErrorShown.value = true
+    }
+
+
+    fun comentarAlbum(idAlbum:String?, comentario:String, callback: (JSONObject)->Unit, onError: (VolleyError)->Unit){
+
+        var collectorComentario = CollectorComentario(id = 1)
+        var comentario = Comentario(description = comentario,rating = 5, collector = collectorComentario);
+
+        var gson = Gson()
+        var jsonString = gson.toJson(comentario)
+
+        var dataComentario = JSONObject(jsonString);
+
+        albumsDetailRepository.comentarAlbum(idAlbum,dataComentario,callback,onError)
+
     }
 
     class Factory(val app: Application,val id:String?) : ViewModelProvider.Factory {

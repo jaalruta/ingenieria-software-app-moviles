@@ -90,6 +90,46 @@
                     android:textColor="@color/white"
                     android:textSize="14sp" />
 
+                <TextView
+                    android:id="@+id/albumComentarioLabel"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:justificationMode="inter_word"
+                    android:text="@string/comentar_label"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="34sp"
+                    android:visibility="gone" />
+
+                <EditText
+                    android:id="@+id/albumComentario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:gravity="start|top"
+                    android:hint="@string/comentar_hint"
+                    android:inputType="textMultiLine"
+                    android:minHeight="48dp"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/botonGuardarComentario"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Guardar Comentario"
+                    android:visibility="gone" />
+
+                <Button
+                    android:id="@+id/botonComentar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Comentar" />
+
 
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>

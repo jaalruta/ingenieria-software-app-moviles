@@ -1,8 +1,11 @@
 package com.miso.vinilos.repositories
 import android.app.Application
+import com.android.volley.VolleyError
 import com.miso.vinilos.models.Album
 import com.miso.vinilos.network.CacheManager
 import com.miso.vinilos.network.NetworkServiceAdapter
+import org.json.JSONObject
+import java.text.SimpleDateFormat
 
 class AlbumDetailRepository (val application: Application){
 
@@ -21,6 +24,17 @@ class AlbumDetailRepository (val application: Application){
             return potentialResp
         }
 
+    }
+
+    fun comentarAlbum(idAlbum: String?,datosComentario:JSONObject, callback: (JSONObject)->Unit, onError: (VolleyError)->Unit): String {
+
+        NetworkServiceAdapter.getInstance(application).postComentario(idAlbum,datosComentario,{
+            callback(it)
+        },
+            onError
+        )
+
+        return "OK";
     }
 
 }
