@@ -1,7 +1,6 @@
 package com.miso.vinilos.ui
 import android.app.AlertDialog
 import android.app.DatePickerDialog
-import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -16,7 +15,6 @@ import androidx.navigation.findNavController
 
 import com.miso.vinilos.R
 
-import com.miso.vinilos.models.Album
 import com.miso.vinilos.viewmodels.AlbumCreateViewModel
 import org.json.JSONObject
 import java.util.*

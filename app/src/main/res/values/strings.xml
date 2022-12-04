@@ -34,5 +34,8 @@
 
     <string name="comentar_label">Comentar Album</string>
     <string name="comentar_hint">Ingresa Tu Comentario</string>
+    <string name="title_artista">Opcion artista</string>
+    <string name="title_coleccionista">Opcion coleccionista</string>
+
 
 </resources>
